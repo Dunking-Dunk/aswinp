@@ -35,15 +35,15 @@ const Container = styled.div`
     position: absolute;
     left: 5rem;
     top: 5rem;
-    display: flex;
-    align-items: center;
+
     gap: 5rem;
     color: var(--secondary-color);
     z-index: 2;
     
 @media (max-width: 600px) {
-    left: 2rem;
-    top: 10rem;
+    left: -20px;
+    top: 5rem;
+    transform: rotate(-90deg);
 }
 `
 

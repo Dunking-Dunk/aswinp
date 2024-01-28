@@ -6,19 +6,25 @@ import SplitText from "split-type";
 
 gsap.registerPlugin(Draggable) 
 gsap.registerPlugin(ScrollTrigger) 
+ScrollTrigger.config({
+    // a comma-delimited list of events that trigger a refresh. 
+    // default: "visibilitychange,DOMContentLoaded,load,resize"
+    // so you could remove the "resize" one:
+    autoRefreshEvents: "visibilitychange,DOMContentLoaded,load"
+  });
+
 
 export function initiateAnimation() { 
     const texts = document.querySelectorAll('.reveal-text')
     const fadeInRight = document.querySelectorAll('.fade_in_right')
     
-    texts.forEach((char, i) => {
-        const text = new SplitText(char, { types: 'chars' })
+        const text = new SplitText(texts)
  
-        gsap.from(text.chars,
+        gsap.from(text.words,
             {
                 scrollTrigger: {
-                    trigger: char,
-                    start: 'top 80%',
+                    trigger: texts,
+                    start: 'top 100%',
                     end: 'top 30%',
                     scrub: 2, 
                 },
@@ -27,7 +33,7 @@ export function initiateAnimation() {
                 stagger: 0.1
             }
         )
-    })
+
 
     // fadeInRight.forEach((ele) => {
     

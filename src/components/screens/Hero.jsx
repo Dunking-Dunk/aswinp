@@ -7,11 +7,13 @@ import HeroName from '../HeroName'
 const HeroScreen = () => {
 
     return (<Container id="hero__screen">
-        <HeroName />
-        <HeroText id="fade-in-animation">Bringing light to darkness</HeroText>
-        <ArrowContainer id="fade-in-animation">
-            <ArrowDown />
-        </ArrowContainer>
+        <HeroContainer>
+            <HeroName />
+            <HeroText id="fade-in-animation">Your Web3 Marketing Saviour</HeroText>
+            <ArrowContainer id="fade-in-animation">
+                <ArrowDown />
+            </ArrowContainer>
+        </HeroContainer>
     </Container>)
 }
 
@@ -21,11 +23,19 @@ const Container = styled.div`
 position: relative;
     width:100%;
     height: 100vh;
+`
+
+const HeroContainer = styled.div`
+width: 100%;
+height: 100%;
+position:absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-end;
-    
 `
 
 const HeroText = styled.h3`
@@ -36,5 +46,7 @@ const HeroText = styled.h3`
     word-spacing: -0.1rem; 
 `
 const ArrowContainer = styled.div`
-
+    @media (max-width: 600px) {
+        margin-bottom: 5rem;
+    }
 `

@@ -19,7 +19,7 @@ const Header = () => {
             <Wrapper>
 
                 <LeftContainer>
-                    <Logo to='/'>ASWINP</Logo>
+                    <Logo to='/'>ASWIN</Logo>
                 </LeftContainer>
                 <CenterContainer>
                     <ShrinkAnimation>
@@ -115,24 +115,25 @@ export const HeaderLink = styled.a`
    text-decoration: none;
     color: var(--secondary-color);
     line-height: 1.05;
+;
     
    &::before{
     content: '';
     display: block;
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     width: 100%;
     height: 1px;
     background-color:  var(--secondary-color);
-    transform-origin: left center;
+
     transform: scaleX(0);
-    transition: 0.2s linear;
+    transform-origin: bottom right;
+    transition: transform 0.5s ease-out;
    }
 
-   &:hover{
-    &::before {
+   &:hover:before {
           transform: scaleX(1);
-    }
+          transform-origin: bottom left;
    }
 
    @media (max-width: 1200px) {

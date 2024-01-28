@@ -7,8 +7,8 @@ const ThemeProvider = ({ children }) => {
 
     useEffect(() => {
         const themeData = window.localStorage.getItem('theme')
-        document.querySelector('body').setAttribute("data-theme", themeData)
-        setTheme(themeData)
+        document.querySelector('body').setAttribute("data-theme", themeData ? themeData : 'dark')
+        setTheme(themeData ? themeData : 'dark')
     }, [])
 
     const setDarkMode = () => {

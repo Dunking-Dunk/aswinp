@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
 import Styled from 'styled-components'
 import Background from './background'
@@ -14,7 +14,6 @@ const IndexCanvas = () => {
     const [sunRef, set] = useState(null)
     const [screenRef, setScreenRef] = useState(null)
     const dirLight = useRef();
-
     useEffect(() => {
         if (cameraRef) {
             const tl = gsap.timeline({
@@ -38,6 +37,7 @@ const IndexCanvas = () => {
 
 
     return (
+
         <Container id="home__canvas" data-shrink={false} >
             <Canvas style={{ width: '100%', height: '100%' }}
                 frameloop='always'
@@ -48,19 +48,16 @@ const IndexCanvas = () => {
                 <color attach="background" args={["black"]} />
                 <PerspectiveCamera makeDefault position={[0, 0, 10]} ref={setCameraRef} />
                 <ambientLight intensity={0.1} />
-                <directionalLight color={"#ffffff"} intensity={1} ref={dirLight} position={[0, 0, 1]} />
-                <Background ref={set} />
-                <Floor />
+                <directionalLight color={"#ffffff"} intensity={1.5} ref={dirLight} position={[0, 0, 1]} />
+                <Suspense fallback={null}>
+                    <Background ref={set} />
+                    <Floor />
+                </Suspense>
+
                 <ScreenCarousel ref={setScreenRef} />
                 <EffectComposer disableNormalPass multisampling={1} >
-                    {sunRef && screenRef && (
+                    {sunRef && (
                         <>
-                            {/* <GodRays
-                                sun={screenRef}
-                                exposure={0.3} decay={0.5} blur
-
-                            /> */}
-
                             <GodRays
                                 sun={sunRef}
                                 exposure={0.3} decay={0.8} blur
@@ -77,9 +74,9 @@ const IndexCanvas = () => {
                     />
 
                 </EffectComposer>
+
             </Canvas>
         </Container>
-
     )
 }
 
@@ -88,8 +85,10 @@ export default IndexCanvas
 const Container = Styled.div`
 left: 0;
 top: 0;
+right: 0;
+bottom: 0;
 width: 100%;
-height: 100%;
+height: 100vh;
 position: fixed;
 z-index: 0;
 `

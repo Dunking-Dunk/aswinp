@@ -22,20 +22,16 @@ const InfiniteMarque = () => {
 
     return (
         <Container ref={containerRef}>
-            <Text>Medium Top Writer </Text>
-            <Text> Unbiased Guy </Text>
-            <Text>Poetry</Text>
-            <Text>Self</Text>
-            <Text>Society</Text>
-            <Text>Spirituality</Text>
-            <Text>Science</Text>
-            <Text>Medium Top Writer </Text>
-            <Text> Unbiased Guy </Text>
-            <Text>Poetry</Text>
-            <Text>Self</Text>
-            <Text>Society</Text>
-            <Text>Spirituality</Text>
-            <Text>Science</Text>
+            <Text>Writer</Text>
+            <Text>Marketer</Text>
+            <Text>Social Media Manager</Text>
+            <Text>Degen trader</Text>
+            <Text>Unbiased Human</Text>
+            <Text>Writer</Text>
+            <Text>Marketer</Text>
+            <Text>Social Media Manager</Text>
+            <Text>Degen trader</Text>
+            <Text>Unbiased Human</Text>
         </Container>
     )
 }

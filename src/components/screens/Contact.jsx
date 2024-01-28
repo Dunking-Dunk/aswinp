@@ -9,9 +9,10 @@ const ContactScreen = () => {
 
     return <Container id='contact__screen'>
         <ScreenHeader index='04//04' title='contact' />
-        <Title>INTRESTED IN WORKING TOGTHER ?</Title>
+        <Title>INTERESTED IN WORKING TOGETHER ?</Title>
+        <Para>Thank you for exploring my professional world. I am keen on discussing how my skills and experiences align with your goals. Let's connect and explore how we can drive growth and success together in this battle.</Para>
         <ShrinkAnimation>
-            <Button><Text>DROP ME A LINE</Text></Button>
+            <Button href="mailto:aswin.p7@outlook.com"><Text>DROP ME A LINE</Text></Button>
         </ShrinkAnimation>
         <MusicalStrings style={{ top: '5%' }} />
         <MusicalStrings style={{ top: '40%' }} />
@@ -35,7 +36,9 @@ const Container = styled.div`
 
     @media (max-width: 600px) {
     padding:  0rem;
-    justify-content: center;
+    gap: 2rem;
+    justify-content: flex-end;
+    padding-bottom: 6rem;
 }
 
 `
@@ -43,18 +46,19 @@ const Container = styled.div`
 const Title = styled.h2`
 font-size: 12.8rem;
 font-weight: 900;
-margin-bottom: 10rem;
+margin-bottom: 0rem;
 color: var(--secondary-color);
 @media (max-width: 1200px){
     font-size: 11.2rem;
     }
  
     @media (max-width: 600px) {
-    margin-bottom: 5rem;
+    font-size: 10.5rem;
 }
 `
 
-const Button = styled.button`
+const Button = styled.a`
+text-decoration: none;
     width: 50rem;
     height: 8rem;
     background: transparent;
@@ -92,6 +96,18 @@ const Text = styled.h5`
     color: var(--secondary-color);
     z-index: 2;
     position: absolute;
-    top: 1.5rem;
+    top:1rem;
     left: 10rem;
+`
+
+const Para = styled.p`
+    font-size: 3rem;
+    margin-bottom: 4rem;
+    width: 60%;
+    z-index: 10;
+    color: var(--secondary-color);
+    @media (max-width: 600px) {
+    width: 100%;
+
+}
 `

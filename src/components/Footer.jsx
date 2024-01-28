@@ -6,13 +6,13 @@ import ShrinkAnimation from "./ShrinkAnimation";
 const Footer = () => {
     return (
         <Container>
-            <Para>@ 2023 - ALL RIGHT RESERVER</Para>
+            <Para>@ 2023 - ALL RIGHTS RESERVED</Para>
             <ShrinkAnimation style={{ justifyContent: 'center' }}>
                 <LinkContainer>
-                    <SocialLink to='/'>Instagram</SocialLink>
-                    <SocialLink to='/'>Facebook</SocialLink>
-                    <SocialLink to='/'>Twitter</SocialLink>
-                    <SocialLink to='/'>Linkedin</SocialLink>
+                    {/* <SocialLink to='/'>Instagram</SocialLink> */}
+                    <SocialLink to='https://t.me/polkablaze'>Telegram</SocialLink>
+                    <SocialLink to='https://twitter.com/0xaswin'>Twitter</SocialLink>
+                    <SocialLink to='https://www.linkedin.com/in/curiousaswin/'>Linkedin</SocialLink>
                 </LinkContainer>
             </ShrinkAnimation>
             <Para>DESIGN AND DEVELOPED BY UNFAZED</Para>
@@ -32,8 +32,8 @@ padding: 4rem;
    flex-direction: column;
    align-items: flex-start;
    justify-content: space-between;
-   gap: 4rem;
-   padding: 2rem 2rem
+   gap: 2rem;
+   padding: 1rem 2rem
 }
 `
 

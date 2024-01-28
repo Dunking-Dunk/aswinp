@@ -17,14 +17,21 @@ const Background = forwardRef((props, ref) => {
     const backgroundRef = useRef()
 
     const handleMouse = (e) => {
+        if (e.touches) {
+            setMouse({ x: e.touches[0].clientX - (window.innerWidth * 0.5), y: (window.innerHeight * 0.5) - e.touches[0].clientY - 25 })
+        } else {
+            setMouse({ x: e.clientX - (window.innerWidth * 0.5), y: (window.innerHeight * 0.5) - e.clientY - 25 })
+        }
 
-        setMouse({ x: e.clientX - (window.innerWidth * 0.5), y: (window.innerHeight * 0.5) - e.clientY - 25 })
     }
 
     useEffect(() => {
         window.addEventListener('mousemove', handleMouse, false)
-
-        return () => window.removeEventListener('mousemove', handleMouse, false)
+        window.addEventListener("touchmove", handleMouse, false)
+        return () => {
+            window.removeEventListener('mousemove', handleMouse, false)
+            window.removeEventListener('touchMove', handleMouse, false)
+        }
     }, [])
 
     function easeInOutSine(x) {
@@ -86,7 +93,7 @@ const Background = forwardRef((props, ref) => {
             vec3 col = vec3(0., vUv).zxy;
     
             // Reduce intensity of gradient more to the corners
-            col *= 0.75 * smoothstep(1.- uShrink ,0., length(p - vec2(0.5)));
+            col *= 1. * smoothstep(1.- uShrink ,0., length(p - vec2(0.5)));
     
 
             vec3 mixColor = mix(col  , vec3(uTheme), .1);
